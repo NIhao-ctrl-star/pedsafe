@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "▶ Start PedSafe Server",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/server.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "📡 MQTT CLI Client",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/mqtt_client.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "🧪 Demo Publisher",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/demo_publisher.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
