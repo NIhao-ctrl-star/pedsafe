@@ -1160,10 +1160,8 @@ function focusHazard(rid){
     return;
   }
 
-  // Original map fly-to logic
-  map.flyTo([h.lat,h.lon],17,{duration:1.2});
-  setTimeout(()=>markers[rid]?.openPopup(),1300);
-  if(panelMinimized) togglePanelMobile();
+  map.flyTo([h.lat, h.lon], 17, { duration: 1.2 });
+  setTimeout(() => markers[rid]?.openPopup(), 1300);
 }
 function highlightCard(rid){
   document.getElementById('card-'+rid)?.scrollIntoView({behavior:'smooth',block:'nearest'});
