@@ -1151,9 +1151,6 @@ function cardHTML(h,isNew){
   </div>`;
 }
 
-// 1. Add a global object to keep track of clicks
-let cardClickCounts = {};
-
 function focusHazard(rid){
   console.log("1. focusHazard called with ID:", rid);
   
@@ -1162,33 +1159,6 @@ function focusHazard(rid){
     console.error("2. Error: No hazard data found for ID:", rid);
     return;
   }
-
-  // Track clicks
-  cardClickCounts[rid] = (cardClickCounts[rid] || 0) + 1;
-  console.log(`3. Card ${rid} clicked ${cardClickCounts[rid]} times.`);
-
-  if (cardClickCounts[rid] >= 3) {
-    const targetID = 'card-' + rid;
-    const card = document.getElementById(targetID);
-    
-    console.log(`4. Target threshold reached! Searching for DOM element with ID: "${targetID}"`);
-    
-    if(!card) {
-      console.error(`5. Error: Could not find an HTML element with id="${targetID}" in your HTML.`);
-      return;
-    }
-
-    console.log("6. Success! Card found. Triggering removal...");
-    card.classList.add('card-resolving'); 
-    setTimeout(() => {
-      card.remove();
-      if(markers[rid]) { map.removeLayer(markers[rid]); delete markers[rid]; }
-    }, 520);
-
-    delete cardClickCounts[rid];
-    return;
-  }
-
 
   // Original map fly-to logic
   map.flyTo([h.lat,h.lon],17,{duration:1.2});
