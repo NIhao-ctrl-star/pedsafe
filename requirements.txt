@@ -8,3 +8,9 @@ Pillow==11.2.1
 requests==2.32.3
 python-dotenv==1.0.1
 eventlet==0.38.2
+flask
+flask-socketio
+flask-cors
+paho-mqtt
+haversine
+eventlet
