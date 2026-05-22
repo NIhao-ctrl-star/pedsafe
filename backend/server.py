@@ -1071,3 +1071,10 @@ def _broadcast_alerts_for_hazard(self, hazard):
             
         except Exception as e:
             print(f"[ERROR] Failed to broadcast hazard alert: {e}")
+            
+if __name__ == '__main__':
+    # Grab Railway's assigned port, but default to 5001 for local testing
+    port = int(os.environ.get("PORT", 5001))
+    
+    # Start the server using the dynamic port
+    socketio.run(app, host="0.0.0.0", port=port)

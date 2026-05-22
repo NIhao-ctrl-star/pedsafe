@@ -190,9 +190,12 @@ def main():
     client.on_message    = on_message
     client.on_disconnect = on_disconnect
 
-    print(f"Connecting to {MQTT_BROKER}:{MQTT_PORT} …")
+# Look for the env var, default to the one in your config if not set
+    broker_host = os.environ.get("MQTT_BROKER_HOST", MQTT_BROKER)
+    
+    print(f"Connecting to {broker_host}:{MQTT_PORT} …")
     try:
-        client.connect(MQTT_BROKER, MQTT_PORT, MQTT_KEEPALIVE)
+        client.connect(broker_host, MQTT_PORT, MQTT_KEEPALIVE)
     except Exception as e:
         print(f"{RED}Connection error: {e}{RESET}")
         sys.exit(1)
